@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Be My Valentine? ❤️</title>
+
+<style>
+body{
+  background:pink;
+  text-align:center;
+  font-family:Arial;
+  margin-top:70px;
+}
+
+button{
+  padding:12px 28px;
+  font-size:18px;
+  margin:10px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+
+#yes{background:lightgreen;}
+#no{background:lightcoral;}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-6px);}
+50%{transform:translateX(6px);}
+75%{transform:translateX(-6px);}
+100%{transform:translateX(0);}
+}
+.shake{animation:shake .4s;}
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine? ❤️</h1>
+
+<img src="cat.gif" width="250"><br>
+
+<button id="yes" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeGmidNke4RfRLoTKRb8h_44c9sMVsYSWe5j4Zco00duw2Vcw/viewform?usp=header'">
+Yes ❤️
+</button>
+
+<button id="no" onclick="shakeNo()">No 💔</button>
+
+<h2 id="msg"></h2>
+
+<script>
+let clicks = 0;
+
+function shakeNo(){
+  const btn=document.getElementById("no");
+  const msg=document.getElementById("msg");
+
+  clicks++;
+
+  btn.classList.remove("shake");
+  void btn.offsetWidth;
+  btn.classList.add("shake");
+
+  if(clicks<2){
+    msg.innerText="Are you sure? 🥺";
+  } else {
+    window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeGmidNke4RfRLoTKRb8h_44c9sMVsYSWe5j4Zco00duw2Vcw/viewform?usp=header';
+  }
+}
+</script>
+
+</body>
+</html>
